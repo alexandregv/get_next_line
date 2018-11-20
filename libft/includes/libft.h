@@ -6,7 +6,7 @@
 /*   By: aguiot-- <aguiot--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:36:31 by aguiot--          #+#    #+#             */
-/*   Updated: 2018/11/19 18:38:47 by aguiot--         ###   ########.fr       */
+/*   Updated: 2018/11/24 12:22:18 by aguiot--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,10 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_str_skip_to(char **str, char const c);
 int					ft_str_skip_while(char **str, int (*f)(int));
 int					ft_str_skip_charset(char **str, char const *charset);
+void				ft_strdebug(char const *str);
+int					ft_str_copy_to(char **dst, char *src, char c);
+char				*ft_strnjoin(char const *s1, char const *s2, size_t n);
+void				ft_lstprint(t_list const *list);
+void				ft_lstprintn(t_list const *list, size_t n);
 
 #endif

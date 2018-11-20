@@ -1,17 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguiot-- <aguiot--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 19:48:06 by aguiot--          #+#    #+#             */
-/*   Updated: 2018/11/26 15:02:10 by aguiot--         ###   ########.fr       */
+/*   Created: 2018/11/20 16:54:37 by aguiot--          #+#    #+#             */
+/*   Updated: 2018/11/27 19:14:35 by aguiot--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void		ft_strclr(char *s)
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+
+# define BUFF_SIZE 4000
+
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdlib.h>
+
+typedef	struct		s_file
 {
-	while (s && *s)
-		*(s++) = 0;
-}
+	char			*remainder;
+	char			*tmp;
+	size_t			fd;
+	struct s_file	*next;
+}					t_file;
+
+int					get_next_line(const int fd, char **line);
+
+#endif

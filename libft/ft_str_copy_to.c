@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_copy_to.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguiot-- <aguiot--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 16:13:07 by aguiot--          #+#    #+#             */
-/*   Updated: 2018/11/23 18:07:09 by aguiot--         ###   ########.fr       */
+/*   Created: 2018/11/23 18:51:22 by aguiot--          #+#    #+#             */
+/*   Updated: 2018/11/26 18:57:44 by aguiot--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
+#include <stdlib.h>
 
-char		*ft_strncpy(char *dst, const char *src, size_t n)
+int			ft_str_copy_to(char **dst, char *src, char c)
 {
-	char	*d;
+	char	*p;
+	int		i;
+	int		count;
+	int		pos;
 
-	if (!n)
-		return (dst);
-	d = dst;
-	while (n && *src)
+	i = -1;
+	count = 0;
+	while (src[++i])
+		if (src[i] == c)
+			break ;
+	pos = i;
+	if (!(*dst = ft_strnew(i)))
+		return (0);
+	while (src[count] && count < i)
 	{
-		*dst++ = *src++;
-		--n;
+		p = *dst;
+		*dst = ft_strnjoin(*dst, &src[count], 1);
+		ft_memdel((void**)&p);
+		if (*dst == NULL)
+			return (0);
+		count++;
 	}
-	while (n--)
-		*dst++ = '\0';
-	return (d);
+	return (pos);
 }

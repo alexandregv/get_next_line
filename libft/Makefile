@@ -6,12 +6,12 @@
 #    By: aguiot-- <aguiot--@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 11:37:02 by aguiot--          #+#    #+#              #
-#    Updated: 2018/11/14 13:35:08 by aguiot--         ###   ########.fr        #
+#    Updated: 2018/11/27 11:13:07 by aguiot--         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-INCLUDES = ./
+INCLUDES = ./includes
 CFLAGS += -Wall -Wextra -Werror
 SRC = ft_putchar_fd.c ft_putchar.c ft_putstr_fd.c ft_putstr.c ft_putnbr_fd.c \
 	  ft_putnbr.c ft_strlen.c ft_strcpy.c  ft_strncpy.c ft_strdup.c \
@@ -29,7 +29,8 @@ SRC = ft_putchar_fd.c ft_putchar.c ft_putstr_fd.c ft_putstr.c ft_putnbr_fd.c \
 	  ft_strmapi.c ft_atoi.c ft_memcpy.c ft_memchr.c ft_memcmp.c ft_memmove.c \
 	  ft_memccpy.c ft_strsplit.c ft_itoa.c ft_lstnew.c ft_lstadd.c \
 	  ft_lstdelone.c ft_lstdel.c ft_lstiter.c ft_lstmap.c ft_str_skip_to.c \
-	  ft_str_skip_while.c ft_str_skip_charset.c
+	  ft_str_skip_while.c ft_str_skip_charset.c ft_strdebug.c ft_str_copy_to.c \
+	  ft_strnjoin.c ft_lstprint.c ft_lstprintn.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
